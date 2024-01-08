@@ -1,0 +1,10 @@
+# VersionGroupDetails
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `levelLearnedAt`                                                           | *number*                                                                   | :heavy_check_mark:                                                         | The minimum level to learn the move                                        | 0                                                                          |
+| `moveLearnMethod`                                                          | [components.NamedAPIResource](../../models/components/namedapiresource.md) | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
+| `versionGroup`                                                             | [components.NamedAPIResource](../../models/components/namedapiresource.md) | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |

@@ -1,0 +1,13 @@
+# PastMoveStatValues
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `accuracy`                                                                      | *number*                                                                        | :heavy_check_mark:                                                              | The percent value of how likely this move is to be successful.                  |
+| `effectChance`                                                                  | *number*                                                                        | :heavy_minus_sign:                                                              | The percent value of effect occurring.                                          |
+| `power`                                                                         | *number*                                                                        | :heavy_check_mark:                                                              | The base power of this move with a value of 0 if it does not have a base power. |
+| `pp`                                                                            | *number*                                                                        | :heavy_check_mark:                                                              | The power points this move has left.                                            |
+| `effectEntries`                                                                 | [components.EffectEntries](../../models/components/effectentries.md)[]          | :heavy_minus_sign:                                                              | The list of previous effects this move has had across version groups.           |
+| `type`                                                                          | [components.TypeT](../../models/components/typet.md)                            | :heavy_minus_sign:                                                              | N/A                                                                             |

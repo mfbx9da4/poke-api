@@ -1,0 +1,24 @@
+{
+  "name": "poke-api",
+  "version": "1.0.0",
+  "description": "A simple API to get information about Pokemons",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "uvu -r tsm tests"
+  },
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "axios": "^1.6.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "tsm": "^2.3.0",
+    "typescript": "^5.3.3",
+    "uvu": "^0.5.6"
+  }
+}

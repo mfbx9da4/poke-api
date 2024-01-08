@@ -1,0 +1,2 @@
+# Ignore node_modules from diffs
+node_modules/ linguist-generated=true

@@ -1,0 +1,1 @@
+{"version":3,"file":"PokemonApi.d.ts","sourceRoot":"","sources":["../../src/apis/PokemonApi.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,OAAO,EAAY,MAAM,WAAW,CAAC;AAG/D,eAAO,MAAM,UAAU;IACrB;OACG;cACa,MAAM,KAAG,gBAAgB,OAAO,CAAC;IAIjD;OACG;sBACqB,MAAM,KAAG,gBAAgB,OAAO,CAAC;CAI1D,CAAC"}

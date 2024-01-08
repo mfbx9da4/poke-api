@@ -1,0 +1,1 @@
+{"version":3,"file":"NaturesApi.d.ts","sourceRoot":"","sources":["../../src/apis/NaturesApi.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,MAAM,EAAY,MAAM,WAAW,CAAC;AAG9D,eAAO,MAAM,UAAU;IACrB,uFAAuF;cACvE,MAAM,KAAG,gBAAgB,MAAM,CAAC;IAIhD,uFAAuF;sBAC/D,MAAM,KAAG,gBAAgB,MAAM,CAAC;CAIzD,CAAC"}

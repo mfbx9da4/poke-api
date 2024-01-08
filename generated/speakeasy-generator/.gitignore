@@ -1,0 +1,8 @@
+/models
+/models/errors
+/types
+/lib
+/sdk
+/index.*
+/cjs
+/.tsbuildinfo

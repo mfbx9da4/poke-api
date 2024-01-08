@@ -1,0 +1,13 @@
+# Location
+
+
+## Fields
+
+| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `id`                                                                               | *number*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `name`                                                                             | *string*                                                                           | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `region`                                                                           | [components.NamedAPIResource](../../models/components/namedapiresource.md)         | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `names`                                                                            | [components.Name](../../models/components/name.md)[]                               | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `gameIndices`                                                                      | [components.GenerationGameIndex](../../models/components/generationgameindex.md)[] | :heavy_minus_sign:                                                                 | N/A                                                                                |
+| `areas`                                                                            | [components.NamedAPIResource](../../models/components/namedapiresource.md)[]       | :heavy_minus_sign:                                                                 | N/A                                                                                |

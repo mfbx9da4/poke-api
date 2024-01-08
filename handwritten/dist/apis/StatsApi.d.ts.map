@@ -1,0 +1,1 @@
+{"version":3,"file":"StatsApi.d.ts","sourceRoot":"","sources":["../../src/apis/StatsApi.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,IAAI,EAAY,MAAM,WAAW,CAAC;AAG5D,eAAO,MAAM,QAAQ;IACnB,kNAAkN;cAClM,MAAM,KAAG,gBAAgB,IAAI,CAAC;IAI9C,kNAAkN;sBAC1L,MAAM,KAAG,gBAAgB,IAAI,CAAC;CAIvD,CAAC"}

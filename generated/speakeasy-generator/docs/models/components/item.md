@@ -1,0 +1,16 @@
+# Item
+
+
+## Fields
+
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `id`                                                                     | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `name`                                                                   | *string*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `cost`                                                                   | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `flingPower`                                                             | *number*                                                                 | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `effectEntries`                                                          | [components.VerboseEffect](../../models/components/verboseeffect.md)[]   | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `flavorTextEntries`                                                      | [components.FlavorText](../../models/components/flavortext.md)[]         | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `attributes`                                                             | [components.ItemAttribute](../../models/components/itemattribute.md)[]   | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `category`                                                               | [components.ItemCategory](../../models/components/itemcategory.md)       | :heavy_minus_sign:                                                       | N/A                                                                      |
+| `flingEffect`                                                            | [components.ItemFlingEffect](../../models/components/itemflingeffect.md) | :heavy_minus_sign:                                                       | N/A                                                                      |
