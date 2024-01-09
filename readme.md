@@ -6,11 +6,11 @@
 
 ## Approach
 
-There are two main approaches to build an SDK: either generate it or write it by hand. Overall, generating the SDK is a lot better approach but I thought I'd try out both.
+There are two main approaches to building an SDK: either generate it or write it by hand. Overall, generating the SDK is a lot better approach but I thought I should do both as the handwritten SDK will give you a better idea of my coding style.
 
-The pros of hand-writing the SDK are:
+The are some minor pros of hand-writing the SDK:
 
-- Optimizations: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than shipping all of Axios.
+- Optimizations: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than bundling Axios.
 - Idiomatic Typescript: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)`.
 
 The pros of generating the SDK are:
@@ -32,6 +32,7 @@ The pros of generating the SDK are:
 - HTTP Client: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 1/5 of the size of the SDK. I manually tested this client in the browser but it would be better to check in some browser tests too.
 - Peer dependencies vs bundled dependencies: The age old dilemma of static vs dynamic linking. For user convenience I went for bundling zod but it would be nice to provide the option to use a shared version to save space.
 - SDK validation: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
+- Tree-shaking and ESM: Something I didn't get to is, writing this as an ESM-first library as it should improve tree-shaking and future proof the SDK. I also would have liked to verify that tree-shaking is working as intended.
 
 ## Notes on the Generated SDKs
 
