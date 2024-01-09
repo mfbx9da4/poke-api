@@ -25,7 +25,7 @@ it("should throw NotFound Error", async () => {
 it("should throw ParseResponse Error", async () => {
   // Mock the server to respond with bad data
   const oldGet = http.get.bind(http);
-  // @ts-expect-error
+  // @ts-ignore
   http.get = async () => ({ status: 200, data: '{"bad": "data"}' });
 
   const res = await PokeSDK.natures.get(1);
