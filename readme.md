@@ -12,7 +12,7 @@ The are some pros of hand-writing the SDK:
 
 - **Optimizations**: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than bundling Axios.
 - **Idiomatic**: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)` whereas in Swift I would implement `get(id: Int)` and `get(name: String)`.
-- **Control**: I can decide what dependencies to use and there is no magic.
+- **No magic**: The generated SDK is a bit of a black box. It's harder to extend it.
 
 The pros of generating the SDK are:
 
