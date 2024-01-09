@@ -8,10 +8,11 @@
 
 There are two main approaches to building an SDK: either generate it or write it by hand. Overall, generating the SDK is a lot better approach but I thought I should do both as the handwritten SDK will give you a better idea of my coding style.
 
-The are some minor pros of hand-writing the SDK:
+The are some pros of hand-writing the SDK:
 
 - **Optimizations**: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than bundling Axios.
 - **Idiomatic**: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)` whereas in Swift I would implement `get(id: Int)` and `get(name: String)`.
+- **Control**: I can decide what dependencies to use and there is no magic.
 
 The pros of generating the SDK are:
 
