@@ -1,6 +1,6 @@
-## Goals
+## Aim
 
-- Production grade Typescript SDK for the Pokemon API
+- Production grade Typescript SDK for the [Pokemon API](https://pokeapi.co/)
 - Only supports `/pokemon/{id or name}`, `/stat/{id or name}` and `/nature/{id or name}` endpoints but built to be extensible
 - Imagine the existing typescript libraries do not exist
 
