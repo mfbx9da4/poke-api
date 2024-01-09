@@ -39,4 +39,5 @@ The pros of generating the SDK are:
 
 ## Notes on the Generated SDKs
 
+- To run the tests follow the instructions in [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md)
 - **Openapi.yaml**: Instead of parsing the official documentation and generating the `openapi.yaml` [I modified one somebody had made previously](https://github.com/cliffano/pokeapi-clients/blob/main/specification/pokeapi.yml). Ideally there would be a script to regenerate the `openapi.yaml` from the official documentation. Or better yet the official documentation would be generated from the `openapi.yaml`.
