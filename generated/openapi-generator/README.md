@@ -1,80 +1,116 @@
-## @
+# Poke API SDK
 
-This generator creates TypeScript/JavaScript client that utilizes fetch-api.
+A Typescript SDK for the [Poke API](https://pokeapi.co/about).
 
-### Building
+## Installation
 
-To build and compile the typescript sources to javascript use:
-```
-npm install
-npm run build
+```bash
+npm install poke-api
 ```
 
-### Publishing
+## Usage
 
-First build the package then run ```npm publish```
-
-### Consuming
-
-Navigate to the folder of your consuming project and run one of the following commands.
-
-_published:_
-
-```
-npm install @ --save
+```typescript
+import { createConfiguration, PokemonApi } from "poke-api";
+const configuration = createConfiguration();
+const api = new PokemonApi(configuration);
+const result = await api.get(1);
 ```
 
-_unPublished (not recommended):_
+## API Reference
 
-```
-npm install PATH_TO_GENERATED_PACKAGE --save
-```
+### [AbilityApi](./AbilityApi.md)
 
-### Usage
+### [BerryApi](./BerryApi.md)
 
-Below code snippet shows exemplary usage of the configuration and the API based 
-on the typical `PetStore` example used for OpenAPI. 
+### [BerryFirmnessApi](./BerryFirmnessApi.md)
 
-```
-import * as your_api from 'your_api_package'
+### [BerryFlavorApi](./BerryFlavorApi.md)
 
-// Covers all auth methods included in your OpenAPI yaml definition
-const authConfig: your_api.AuthMethodsConfiguration = {
-    "api_key": "YOUR_API_KEY"
-}
+### [CharacteristicApi](./CharacteristicApi.md)
 
-// Implements a simple middleware to modify requests before (`pre`) they are sent
-// and after (`post`) they have been received 
-class Test implements your_api.Middleware {
-    pre(context: your_api.RequestContext): Promise<your_api.RequestContext> {
-        // Modify context here and return
-        return Promise.resolve(context);
-    }
+### [ContestEffectApi](./ContestEffectApi.md)
 
-    post(context: your_api.ResponseContext): Promise<your_api.ResponseContext> {
-        return Promise.resolve(context);
-    }
+### [ContestTypeApi](./ContestTypeApi.md)
 
-}
+### [EggGroupApi](./EggGroupApi.md)
 
-// Create configuration parameter object
-const configurationParameters = {
-    httpApi: new your_api.JQueryHttpLibrary(), // Can also be ignored - default is usually fine
-    baseServer: your_api.servers[0], // First server is default
-    authMethods: authConfig, // No auth is default
-    promiseMiddleware: [new Test()],
-}
+### [EncounterConditionApi](./EncounterConditionApi.md)
 
-// Convert to actual configuration
-const config = your_api.createConfiguration(configurationParameters);
+### [EncounterConditionValueApi](./EncounterConditionValueApi.md)
 
-// Use configuration with your_api
-const api = new your_api.PetApi(config);
-your_api.Pet p = new your_api.Pet();
-p.name = "My new pet";
-p.photoUrls = [];
-p.tags = [];
-p.status = "available";
-Promise<your_api.Pet> createdPet = api.addPet(p);
+### [EncounterMethodApi](./EncounterMethodApi.md)
 
-```
+### [EvolutionChainApi](./EvolutionChainApi.md)
+
+### [EvolutionTriggerApi](./EvolutionTriggerApi.md)
+
+### [GenderApi](./GenderApi.md)
+
+### [GenerationApi](./GenerationApi.md)
+
+### [GrowthRateApi](./GrowthRateApi.md)
+
+### [ItemApi](./ItemApi.md)
+
+### [ItemAttributeApi](./ItemAttributeApi.md)
+
+### [ItemCategoryApi](./ItemCategoryApi.md)
+
+### [ItemFlingEffectApi](./ItemFlingEffectApi.md)
+
+### [ItemPocketApi](./ItemPocketApi.md)
+
+### [LanguageApi](./LanguageApi.md)
+
+### [LocationApi](./LocationApi.md)
+
+### [LocationAreaApi](./LocationAreaApi.md)
+
+### [MachineApi](./MachineApi.md)
+
+### [MoveApi](./MoveApi.md)
+
+### [MoveAilmentApi](./MoveAilmentApi.md)
+
+### [MoveBattleStyleApi](./MoveBattleStyleApi.md)
+
+### [MoveCategoryApi](./MoveCategoryApi.md)
+
+### [MoveDamageClassApi](./MoveDamageClassApi.md)
+
+### [MoveLearnMethodApi](./MoveLearnMethodApi.md)
+
+### [MoveTargetApi](./MoveTargetApi.md)
+
+### [NatureApi](./NatureApi.md)
+
+### [PalParkAreaApi](./PalParkAreaApi.md)
+
+### [PokeathlonStatApi](./PokeathlonStatApi.md)
+
+### [PokedexApi](./PokedexApi.md)
+
+### [PokemonApi](./PokemonApi.md)
+
+### [PokemonColorApi](./PokemonColorApi.md)
+
+### [PokemonFormApi](./PokemonFormApi.md)
+
+### [PokemonHabitatApi](./PokemonHabitatApi.md)
+
+### [PokemonShapeApi](./PokemonShapeApi.md)
+
+### [PokemonSpeciesApi](./PokemonSpeciesApi.md)
+
+### [RegionApi](./RegionApi.md)
+
+### [StatApi](./StatApi.md)
+
+### [SuperContestEffectApi](./SuperContestEffectApi.md)
+
+### [TypeApi](./TypeApi.md)
+
+### [VersionApi](./VersionApi.md)
+
+### [VersionGroupApi](./VersionGroupApi.md)

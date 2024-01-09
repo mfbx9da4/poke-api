@@ -40,4 +40,3 @@ The pros of generating the SDK are:
 - **Openapi.yaml**: Instead of parsing the official documentation and generating the `openapi.yaml` I modified one somebody had made previously. Ideally there would be a script to regenerate the `openapi.yaml` from the official documentation. Or better yet the official documentation would be generated from the `openapi.yaml`.
 - `Speakeasy generator`: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it.
 - `Testing`: Since the `devDependencies` are overwritten by re-generating the SDKs a separate `package.json` is used for testing. This feels a bit grim.
-- `Documentation`: I didn't get to doing the documentation for the generated SDKs.

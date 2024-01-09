@@ -17,7 +17,8 @@ speakeasy generate sdk -s "./openapi.yaml" -l typescript -o ./speakeasy-generato
 # Install
 brew install openapi-generator
 # Run
-openapi-generator generate -i ./openapi.yaml -g typescript -o ./openapi-generator
+openapi-generator generate -i ./openapi.yaml -g typescript -o ./openapi-generator --package-name poke-api --openapi-generator-ignore-list "README.md"
+
 ```
 
 ## Test APIs

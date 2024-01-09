@@ -41,7 +41,6 @@ PokemonFormApi.md
 PokemonHabitatApi.md
 PokemonShapeApi.md
 PokemonSpeciesApi.md
-README.md
 RegionApi.md
 StatApi.md
 SuperContestEffectApi.md
@@ -273,7 +272,6 @@ models/VersionGroup.ts
 models/VersionGroupList200Response.ts
 models/VersionList200Response.ts
 models/all.ts
-package.json
 rxjsStub.ts
 servers.ts
 tsconfig.json
