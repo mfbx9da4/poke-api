@@ -22,6 +22,7 @@ The pros of generating the SDK are:
 ## General Notes
 
 - **Checked-in node dependencies**: I shipped the `node_module`s with this repository so it's easy for you to run tests, you won't have to run `npm install`. I'm also not [opposed to that in general](https://www.jackfranklin.co.uk/blog/check-in-your-node-dependencies/).
+- **Speakeasy generator**: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it. Instead please pay more attention to `handwritten` and `openapi-generator` folders.
 
 ## Notes on the Handwritten SDK
 
@@ -38,4 +39,3 @@ The pros of generating the SDK are:
 ## Notes on the Generated SDKs
 
 - **Openapi.yaml**: Instead of parsing the official documentation and generating the `openapi.yaml` I modified one somebody had made previously. Ideally there would be a script to regenerate the `openapi.yaml` from the official documentation. Or better yet the official documentation would be generated from the `openapi.yaml`.
-- `Speakeasy generator`: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it.
