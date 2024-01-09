@@ -11,3 +11,9 @@ npm install
 ```bash
 npm run test
 ```
+
+## Build for publishing
+
+```bash
+npm run build
+```
