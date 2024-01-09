@@ -11,7 +11,7 @@ There are two main approaches to building an SDK: either generate it or write it
 The are some minor pros of hand-writing the SDK:
 
 - **Optimizations**: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than bundling Axios.
-- **Customizable**: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)`.
+- **Idiomatic**: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)`.
 
 The pros of generating the SDK are:
 
