@@ -26,12 +26,12 @@ The pros of generating the SDK are:
 ## Notes on the Handwritten SDK
 
 - **Peer dependencies vs bundled dependencies**: The age old dilemma of static vs dynamic linking. For user convenience I went for bundling zod but it would be nice to provide the option to use a shared version to save space.
+- **SDK validation**: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
 - **Single file**: Decided to split code into multiple files. I think it's actually better from a user's perspective to have a single source file as it's easier to monkey patch. However, it's easier to maintain and should enable better tree shaking to have multiple files.
 - **Documentation redundancy**: The way I have implemented the SDK, the documentation is copied from the website and included in the JS Doc comments and the readme. This is terrible. Again, a central schema would be ideal.
 - **Validation redundancy**: The SDK and the server perform the same validation of inputs and outputs. Moving to a central schema which generates all of these runtime checks would be ideal.
 - **Examples / test redundancy**: The examples are almost the same code as the tests. Ideally there would be a single source of truth because it gives the user confidence that the examples are correct.
 - **HTTP client**: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 1/5 of the size of the SDK. I manually tested this client in the browser but it would be better to check in some browser tests too.
-- **SDK validation**: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
 - **Tree-shaking and ESM**: Something I didn't get to is, writing this as an ESM-first library as it should improve tree-shaking and future proof the SDK. I also would have liked to verify that tree-shaking is working as intended.
 
 ## Notes on the Generated SDKs
