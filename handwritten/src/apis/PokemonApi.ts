@@ -1,5 +1,6 @@
 import { JsonHttpResponse, http } from "../http";
-import { Pokemon, PromiseResponse, Response } from "../models";
+import { PromiseResponse, Response } from "../models/SuccessResponse";
+import { Pokemon } from "../models/Pokemon";
 import { _handleResponse } from "./_handleResponse";
 
 export const PokemonApi = {

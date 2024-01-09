@@ -1,5 +1,6 @@
 import { JsonHttpResponse, http } from "../http";
-import { PromiseResponse, Response, Stat } from "../models";
+import { PromiseResponse, Response } from "../models/SuccessResponse";
+import { Stat } from "../models/Stat";
 import { _handleResponse } from "./_handleResponse";
 
 export const StatsApi = {

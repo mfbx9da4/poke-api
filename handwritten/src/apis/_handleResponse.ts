@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { JsonHttpResponse } from "../http";
-import { ErrorCode, Response } from "../models";
+import { ErrorCode, Response } from "../models/SuccessResponse";
 
 export function _handleResponse<T>(
   schema: z.ZodType<T>,

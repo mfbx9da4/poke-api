@@ -1,57 +1,40 @@
 ## Goals
 
 - Production grade Typescript SDK for the Pokemon API
-- Only supports `/pokemon/{id|name}`, `/stat/{id|name}` and `/nature/{id|name}` endpoints but built to be extensible
-- Assume the existing typescript library is not available
+- Only supports `/pokemon/{id or name}`, `/stat/{id or name}` and `/nature/{id or name}` endpoints but built to be extensible
+- Imagine the existing typescript libraries do not exist
 
-## Todo
+## Approach
 
-- [x] Better errors, are all the errors string?
-- [x] Tests in each of the generated SDKs
-- [x] Errors should be typed when possible
-- [x] SDKs shouldn't throw (in typescript)
-- [ ] Documentation
-- [ ] Make test imports the same as library
-- [ ] Re-read description
-- [ ] Schedule interview
-- [ ] Move everything to one file
-- [ ] Export all types
-- [ ] Stricter tsconfig
-- [ ] Cleanup: readmes, unused files
-- [ ] Lazy load SDK as needed
-- [ ] Examples folder
-- [ ] ES2018 target - decent tradeoff between size and backwards compatibility
-- [ ] Making this ESM first: issues: have to test both, Makefile?
-- [ ] Package.json.files? Want to ship everything so easy to debug
-- [ ] Explain UVU
-- [ ] Raw response needed?
-- [ ] Readme could become out of date
-- [ ] Estimated 1/5 of size
+There are two main approaches to build an SDK: either generate it or write it by hand. Overall, generating the SDK is a lot better approach but I thought I'd try out both.
 
-## Layout
+The pros of hand-writing the SDK are:
 
-```
-handwritten: src/, dist/
-openapi-generator: src/, dist/, openapi.yaml
-speakeasy-generator src/, dist/, openapi.yaml
-readme.md
-```
+- Optimizations: For example with the knowledge that we will only ever need to do `HTTP GET` with JSON we can build a tiny HTTP client rather than shipping all of Axios.
+- Idiomatic Typescript: eg In my opinion, having two methods `get(id: number)` and `getByName(name: string)` is nicer than the generated `get(idOrName: number | string)`.
 
-## Nice to haves
+The pros of generating the SDK are:
 
-- Get rid of Axios
-- Get rid of Zod, maybe do build step validation?
-- Write a script to convert the docs into openapi.yaml
-- Customize generator to have custom http client
-- Fix the circular reference issue in speakyeasy
-- Axios, I would have liked to have used ky but assuming this is a production SDK we wouldn't want users running into browser or node version compatibility issues. Would be nicer if it used fetch if available, fallback to polyfill if needed.
-- Ideally peer dependencies
+- Less redundancy: in the types, documentation, examples and tests.
+- Faster: I was able to generate the SDK almost in minutes.
+- More consistent: less room for human error in naming.
 
-## Thoughts
+## General Notes
 
-- Auto update docs
-  - Generate from their docs
-  - Generate from their source code
-  - Generate from docs -> openapi -> code
-- Fix speakeasy minimal reproducible issue
-- Bash script
+- Checked-in node dependencies: I shipped the `node_module`s with this repository so it's easy for you to run tests, you won't have to run `npm install`. I'm also not [opposed to that in general](https://www.jackfranklin.co.uk/blog/check-in-your-node-dependencies/).
+
+## Notes on the Handwritten SDK
+
+- Single file: Decided to split code into multiple files. I think it's actually better from a user's perspective to have a single source file but it's easier to maintain and should enable better tree shaking to have multiple files.
+- Validation Redundancy: The SDK and the server perform the same validation of inputs and outputs. Moving to a central schema which generates all of these runtime checks would be ideal.
+- Documentation Redundancy: The way I have implemented the SDK, the documentation is copied from the website and included in the JS Doc comments and the readme. This is terrible. Again, a central schema would be ideal.
+- Examples / Test Redundancy: The examples are almost the same code as the tests. Ideally there would be a single source of truth because it gives the user confidence that the examples are correct.
+- HTTP Client: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 1/5 of the size of the SDK. I manually tested this client in the browser but it would be better to check in some browser tests too.
+- Peer dependencies vs bundled dependencies: The age old dilemma of static vs dynamic linking. For user convenience I went for bundling zod but it would be nice to provide the option to use a shared version to save space.
+- SDK validation: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
+
+## Notes on the Generated SDKs
+
+- Openapi.yaml: Instead of parsing the official documentation and generating the openapi.yaml I modified one somebody had made previously. Ideally there would be a script to regenerate the openapi.yaml from the official documentation. Or better yet the official documentation would be generated from the openapi.yaml.
+- Speakeasy Generator: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it.
+- Testing: Since the `devDependencies` are overwritten by re-generating the SDKs a separate `package.json` is used for testing. This feels a bit grim.

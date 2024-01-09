@@ -2,7 +2,8 @@ import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { PokeSDK } from "../src";
 import { http } from "../src/http";
-import { ErrorCode, Pokemon } from "../src/models";
+import { ErrorCode } from "../src/models/SuccessResponse";
+import { Pokemon } from "../src/models/Pokemon";
 import { Expect, Equal } from "./ExpectTypes";
 
 const it = suite("PokeSDK/pokemon");

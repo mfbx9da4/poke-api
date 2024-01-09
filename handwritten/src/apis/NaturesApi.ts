@@ -1,5 +1,6 @@
 import { JsonHttpResponse, http } from "../http";
-import { Nature, PromiseResponse, Response } from "../models";
+import { PromiseResponse, Response } from "../models/SuccessResponse";
+import { Nature } from "../models/Nature";
 import { _handleResponse } from "./_handleResponse";
 
 export const NaturesApi = {
