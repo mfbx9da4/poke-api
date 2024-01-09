@@ -5,7 +5,7 @@ All URIs are relative to *https://pokeapi.co*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**pokemonList**](PokemonApi.md#pokemonList) | **GET** /api/v2/pokemon/ | 
-[**pokemonRead**](PokemonApi.md#pokemonRead) | **GET** /api/v2/pokemon/{id}/ | 
+[**pokemonRead**](PokemonApi.md#pokemonRead) | **GET** /api/v2/pokemon/{id_or_name}/ | 
 
 
 # **pokemonList**
@@ -79,8 +79,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PokemonApi(configuration);
 
 let body:.PokemonApiPokemonReadRequest = {
-  // number
-  id: 1,
+  // IDOrName1
+  idOrName: null,
 };
 
 apiInstance.pokemonRead(body).then((data:any) => {
@@ -93,7 +93,7 @@ apiInstance.pokemonRead(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] |  | defaults to undefined
+ **idOrName** | **IDOrName1** |  | defaults to undefined
 
 
 ### Return type

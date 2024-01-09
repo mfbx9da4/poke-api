@@ -1994,17 +1994,19 @@ paths:
                       $ref: '#/components/schemas/Nature'
       tags:
       - nature
-  /api/v2/nature/{id}/:
+  /api/v2/nature/{id_or_name}/:
     get:
       operationId: nature_read
       parameters:
       - in: path
-        name: id
+        name: id_or_name
         required: true
         schema:
-          description: A unique integer value identifying this nature.
-          title: ID
-          type: integer
+          description: A unique integer value identifying this nature or by name.
+          title: ID or Name
+          oneOf:
+          - type: integer
+          - type: string
       responses:
         '200':
           description: Successful response
@@ -2561,17 +2563,19 @@ paths:
                       $ref: '#/components/schemas/Pokemon'
       tags:
       - pokemon
-  /api/v2/pokemon/{id}/:
+  /api/v2/pokemon/{id_or_name}/:
     get:
       operationId: pokemon_read
       parameters:
       - in: path
-        name: id
+        name: id_or_name
         required: true
         schema:
-          description: A unique integer value identifying this pokemon.
-          title: ID
-          type: integer
+          description: A unique integer value identifying this pokemon or by name.
+          title: ID or Name
+          oneOf:
+          - type: integer
+          - type: string
       responses:
         '200':
           description: Successful response
@@ -2687,17 +2691,19 @@ paths:
                       $ref: '#/components/schemas/Stat'
       tags:
       - stat
-  /api/v2/stat/{id}/:
+  /api/v2/stat/{id_or_name}/:
     get:
       operationId: stat_read
       parameters:
       - in: path
-        name: id
+        name: id_or_name
         required: true
         schema:
-          description: A unique integer value identifying this stat.
-          title: ID
-          type: integer
+          description: A unique integer value identifying this stat or by name.
+          title: ID or Name
+          oneOf:
+          - type: integer
+          - type: string
       responses:
         '200':
           description: Successful response

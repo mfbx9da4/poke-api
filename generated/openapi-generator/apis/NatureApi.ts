@@ -8,6 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { IDOrName } from '../models/IDOrName';
 import { Nature } from '../models/Nature';
 import { NatureList200Response } from '../models/NatureList200Response';
 
@@ -53,20 +54,20 @@ export class NatureApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param id 
+     * @param idOrName 
      */
-    public async natureRead(id: number, _options?: Configuration): Promise<RequestContext> {
+    public async natureRead(idOrName: IDOrName, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new RequiredError("NatureApi", "natureRead", "id");
+        // verify required parameter 'idOrName' is not null or undefined
+        if (idOrName === null || idOrName === undefined) {
+            throw new RequiredError("NatureApi", "natureRead", "idOrName");
         }
 
 
         // Path Params
-        const localVarPath = '/api/v2/nature/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        const localVarPath = '/api/v2/nature/{id_or_name}/'
+            .replace('{' + 'id_or_name' + '}', encodeURIComponent(String(idOrName)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

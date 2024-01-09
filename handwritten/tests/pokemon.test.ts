@@ -11,12 +11,12 @@ it("should get record by ID", async () => {
   const result = await PokeSDK.pokemon.get(1);
   if (result.ok) {
     assert.ok(result.data, "result.data should exist");
-    type errorType = Expect<Equal<typeof result.error, undefined>>;
-    type dataType = Expect<Equal<typeof result.data, Pokemon>>;
+    type checkErrorType = Expect<Equal<typeof result.error, undefined>>;
+    type checkDataType = Expect<Equal<typeof result.data, Pokemon>>;
   } else {
     assert.unreachable("result.ok should be true");
-    type errorType = Expect<Equal<typeof result.error, string>>;
-    type dataType = Expect<Equal<typeof result.data, any>>;
+    type checkErrorType = Expect<Equal<typeof result.error, string>>;
+    type checkDataType = Expect<Equal<typeof result.data, any>>;
   }
 });
 

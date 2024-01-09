@@ -8,6 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
+import { IDOrName2 } from '../models/IDOrName2';
 import { Stat } from '../models/Stat';
 import { StatList200Response } from '../models/StatList200Response';
 
@@ -53,20 +54,20 @@ export class StatApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param id 
+     * @param idOrName 
      */
-    public async statRead(id: number, _options?: Configuration): Promise<RequestContext> {
+    public async statRead(idOrName: IDOrName2, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new RequiredError("StatApi", "statRead", "id");
+        // verify required parameter 'idOrName' is not null or undefined
+        if (idOrName === null || idOrName === undefined) {
+            throw new RequiredError("StatApi", "statRead", "idOrName");
         }
 
 
         // Path Params
-        const localVarPath = '/api/v2/stat/{id}/'
-            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+        const localVarPath = '/api/v2/stat/{id_or_name}/'
+            .replace('{' + 'id_or_name' + '}', encodeURIComponent(String(idOrName)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);

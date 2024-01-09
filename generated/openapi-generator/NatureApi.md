@@ -5,7 +5,7 @@ All URIs are relative to *https://pokeapi.co*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**natureList**](NatureApi.md#natureList) | **GET** /api/v2/nature/ | 
-[**natureRead**](NatureApi.md#natureRead) | **GET** /api/v2/nature/{id}/ | 
+[**natureRead**](NatureApi.md#natureRead) | **GET** /api/v2/nature/{id_or_name}/ | 
 
 
 # **natureList**
@@ -79,8 +79,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .NatureApi(configuration);
 
 let body:.NatureApiNatureReadRequest = {
-  // number
-  id: 1,
+  // IDOrName
+  idOrName: null,
 };
 
 apiInstance.natureRead(body).then((data:any) => {
@@ -93,7 +93,7 @@ apiInstance.natureRead(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] |  | defaults to undefined
+ **idOrName** | **IDOrName** |  | defaults to undefined
 
 
 ### Return type

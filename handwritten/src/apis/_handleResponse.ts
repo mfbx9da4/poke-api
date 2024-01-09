@@ -14,6 +14,7 @@ export function _handleResponse<T>(
 
   if (response.status >= 400) {
     return {
+      ok: false,
       status: response.status,
       data: response.data,
       error: String(response.data),
@@ -25,6 +26,7 @@ export function _handleResponse<T>(
   errorCode = ErrorCode.ParseResponse;
   if (parseResult.success === false) {
     return {
+      ok: false,
       status: 500,
       data: response.data,
       error: parseResult.error.toString(),
@@ -33,6 +35,7 @@ export function _handleResponse<T>(
   }
 
   return {
+    ok: true,
     status: response.status,
     data: parseResult.data,
   };

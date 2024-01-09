@@ -5,7 +5,7 @@ All URIs are relative to *https://pokeapi.co*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**statList**](StatApi.md#statList) | **GET** /api/v2/stat/ | 
-[**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id}/ | 
+[**statRead**](StatApi.md#statRead) | **GET** /api/v2/stat/{id_or_name}/ | 
 
 
 # **statList**
@@ -79,8 +79,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .StatApi(configuration);
 
 let body:.StatApiStatReadRequest = {
-  // number
-  id: 1,
+  // IDOrName2
+  idOrName: null,
 };
 
 apiInstance.statRead(body).then((data:any) => {
@@ -93,7 +93,7 @@ apiInstance.statRead(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**number**] |  | defaults to undefined
+ **idOrName** | **IDOrName2** |  | defaults to undefined
 
 
 ### Return type

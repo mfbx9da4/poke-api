@@ -1,0 +1,120 @@
+# .GenderApi
+
+All URIs are relative to *https://pokeapi.co*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**genderList**](GenderApi.md#genderList) | **GET** /api/v2/gender/ | 
+[**genderRead**](GenderApi.md#genderRead) | **GET** /api/v2/gender/{id}/ | 
+
+
+# **genderList**
+> GenderList200Response genderList()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .GenderApi(configuration);
+
+let body:.GenderApiGenderListRequest = {
+  // number (optional)
+  limit: 1,
+  // number (optional)
+  offset: 1,
+};
+
+apiInstance.genderList(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **offset** | [**number**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**GenderList200Response**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **genderRead**
+> Gender genderRead()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .GenderApi(configuration);
+
+let body:.GenderApiGenderReadRequest = {
+  // number
+  id: 1,
+};
+
+apiInstance.genderRead(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**number**] |  | defaults to undefined
+
+
+### Return type
+
+**Gender**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful response |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+
