@@ -1,4 +1,12 @@
 import * as z from "zod";
+export declare const APIResource: z.ZodObject<{
+    url: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    url: string;
+}, {
+    url: string;
+}>;
+export type APIResource = z.infer<typeof APIResource>;
 export declare const NamedAPIResource: z.ZodObject<{
     name: z.ZodString;
     url: z.ZodString;
@@ -1297,7 +1305,7 @@ export type Pokemon = z.infer<typeof Pokemon>;
 export declare const Nature: z.ZodObject<{
     id: z.ZodNumber;
     name: z.ZodString;
-    decreased_stat: z.ZodObject<{
+    decreased_stat: z.ZodNullable<z.ZodObject<{
         name: z.ZodString;
         url: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -1306,8 +1314,8 @@ export declare const Nature: z.ZodObject<{
     }, {
         url: string;
         name: string;
-    }>;
-    increased_stat: z.ZodObject<{
+    }>>;
+    increased_stat: z.ZodNullable<z.ZodObject<{
         name: z.ZodString;
         url: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -1316,7 +1324,7 @@ export declare const Nature: z.ZodObject<{
     }, {
         url: string;
         name: string;
-    }>;
+    }>>;
     hates_flavor: z.ZodObject<{
         name: z.ZodString;
         url: z.ZodString;
@@ -1363,8 +1371,9 @@ export declare const Nature: z.ZodObject<{
         };
     }>, "many">;
     move_battle_style_preferences: z.ZodArray<z.ZodObject<{
-        max_change: z.ZodNumber;
-        nature: z.ZodObject<{
+        low_hp_preference: z.ZodNumber;
+        high_hp_preference: z.ZodNumber;
+        move_battle_style: z.ZodObject<{
             name: z.ZodString;
             url: z.ZodString;
         }, "strip", z.ZodTypeAny, {
@@ -1375,14 +1384,16 @@ export declare const Nature: z.ZodObject<{
             name: string;
         }>;
     }, "strip", z.ZodTypeAny, {
-        max_change: number;
-        nature: {
+        low_hp_preference: number;
+        high_hp_preference: number;
+        move_battle_style: {
             url: string;
             name: string;
         };
     }, {
-        max_change: number;
-        nature: {
+        low_hp_preference: number;
+        high_hp_preference: number;
+        move_battle_style: {
             url: string;
             name: string;
         };
@@ -1425,11 +1436,11 @@ export declare const Nature: z.ZodObject<{
     decreased_stat: {
         url: string;
         name: string;
-    };
+    } | null;
     increased_stat: {
         url: string;
         name: string;
-    };
+    } | null;
     hates_flavor: {
         url: string;
         name: string;
@@ -1446,8 +1457,9 @@ export declare const Nature: z.ZodObject<{
         };
     }[];
     move_battle_style_preferences: {
-        max_change: number;
-        nature: {
+        low_hp_preference: number;
+        high_hp_preference: number;
+        move_battle_style: {
             url: string;
             name: string;
         };
@@ -1465,11 +1477,11 @@ export declare const Nature: z.ZodObject<{
     decreased_stat: {
         url: string;
         name: string;
-    };
+    } | null;
     increased_stat: {
         url: string;
         name: string;
-    };
+    } | null;
     hates_flavor: {
         url: string;
         name: string;
@@ -1486,14 +1498,112 @@ export declare const Nature: z.ZodObject<{
         };
     }[];
     move_battle_style_preferences: {
-        max_change: number;
-        nature: {
+        low_hp_preference: number;
+        high_hp_preference: number;
+        move_battle_style: {
             url: string;
             name: string;
         };
     }[];
 }>;
 export type Nature = z.infer<typeof Nature>;
+export declare const Description: z.ZodObject<{
+    description: z.ZodString;
+    language: z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        url: string;
+        name: string;
+    }, {
+        url: string;
+        name: string;
+    }>;
+}, "strip", z.ZodTypeAny, {
+    language: {
+        url: string;
+        name: string;
+    };
+    description: string;
+}, {
+    language: {
+        url: string;
+        name: string;
+    };
+    description: string;
+}>;
+export type Description = z.infer<typeof Description>;
+export declare const Characteristic: z.ZodObject<{
+    id: z.ZodNumber;
+    gene_modulo: z.ZodNumber;
+    possible_values: z.ZodArray<z.ZodNumber, "many">;
+    highest_stat: z.ZodObject<{
+        name: z.ZodString;
+        url: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        url: string;
+        name: string;
+    }, {
+        url: string;
+        name: string;
+    }>;
+    descriptions: z.ZodArray<z.ZodObject<{
+        description: z.ZodString;
+        language: z.ZodObject<{
+            name: z.ZodString;
+            url: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            url: string;
+            name: string;
+        }, {
+            url: string;
+            name: string;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        language: {
+            url: string;
+            name: string;
+        };
+        description: string;
+    }, {
+        language: {
+            url: string;
+            name: string;
+        };
+        description: string;
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    id: number;
+    gene_modulo: number;
+    possible_values: number[];
+    highest_stat: {
+        url: string;
+        name: string;
+    };
+    descriptions: {
+        language: {
+            url: string;
+            name: string;
+        };
+        description: string;
+    }[];
+}, {
+    id: number;
+    gene_modulo: number;
+    possible_values: number[];
+    highest_stat: {
+        url: string;
+        name: string;
+    };
+    descriptions: {
+        language: {
+            url: string;
+            name: string;
+        };
+        description: string;
+    }[];
+}>;
+export type Characteristic = z.infer<typeof Characteristic>;
 export declare const Stat: z.ZodObject<{
     id: z.ZodNumber;
     name: z.ZodString;
@@ -1595,17 +1705,17 @@ export declare const Stat: z.ZodObject<{
                 name: string;
             }>;
         }, "strip", z.ZodTypeAny, {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }, {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }>, "many">;
         decrease: z.ZodArray<z.ZodObject<{
             change: z.ZodNumber;
@@ -1620,60 +1730,57 @@ export declare const Stat: z.ZodObject<{
                 name: string;
             }>;
         }, "strip", z.ZodTypeAny, {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }, {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }>, "many">;
     }, "strip", z.ZodTypeAny, {
         increase: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
         decrease: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
     }, {
         increase: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
         decrease: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
     }>;
     characteristics: z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
         url: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         url: string;
-        name: string;
     }, {
         url: string;
-        name: string;
     }>, "many">;
-    move_damage_class: z.ZodObject<{
+    move_damage_class: z.ZodNullable<z.ZodObject<{
         name: z.ZodString;
         url: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -1682,7 +1789,7 @@ export declare const Stat: z.ZodObject<{
     }, {
         url: string;
         name: string;
-    }>;
+    }>>;
     names: z.ZodArray<z.ZodObject<{
         name: z.ZodString;
         language: z.ZodObject<{
@@ -1738,28 +1845,27 @@ export declare const Stat: z.ZodObject<{
     };
     affecting_natures: {
         increase: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
         decrease: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
     };
     characteristics: {
         url: string;
-        name: string;
     }[];
     move_damage_class: {
         url: string;
         name: string;
-    };
+    } | null;
 }, {
     name: string;
     id: number;
@@ -1790,37 +1896,38 @@ export declare const Stat: z.ZodObject<{
     };
     affecting_natures: {
         increase: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
         decrease: {
+            change: number;
             nature: {
                 url: string;
                 name: string;
             };
-            change: number;
         }[];
     };
     characteristics: {
         url: string;
-        name: string;
     }[];
     move_damage_class: {
         url: string;
         name: string;
-    };
+    } | null;
 }>;
 export type Stat = z.infer<typeof Stat>;
-type SuccessResponse<T> = {
+export type SuccessResponse<T> = {
+    ok: true;
     status: number;
     data: T;
     error?: undefined;
     errorCode?: undefined;
 };
-type ErrorResponse = {
+export type ErrorResponse = {
+    ok: false;
     status: number;
     data: any;
     error: string;
@@ -1828,10 +1935,9 @@ type ErrorResponse = {
 };
 export declare enum ErrorCode {
     NotFound = "NotFound",
-    ParseResponseError = "ParseResponseError",
+    ParseResponse = "ParseResponse",
     Unknown = "Unknown"
 }
 export type Response<T> = SuccessResponse<T> | ErrorResponse;
 export type PromiseResponse<T> = Promise<Response<T>>;
-export {};
 //# sourceMappingURL=models.d.ts.map

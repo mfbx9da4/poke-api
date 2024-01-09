@@ -1,10 +1,10 @@
-import { AxiosResponse } from "axios";
-import { ErrorCode, Response } from "../models";
 import { z } from "zod";
+import { JsonHttpResponse } from "../http";
+import { ErrorCode, Response } from "../models";
 
 export function _handleResponse<T>(
   schema: z.ZodType<T>,
-  response: AxiosResponse
+  response: JsonHttpResponse
 ): Response<T> {
   let errorCode = ErrorCode.Unknown;
 

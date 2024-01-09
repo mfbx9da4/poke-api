@@ -1,1 +1,1 @@
-{"version":3,"file":"PokeSDK.js","sourceRoot":"","sources":["../src/PokeSDK.ts"],"names":[],"mappings":";;;AAAA,8CAA2C;AAC3C,kDAA+C;AAC/C,kDAA+C;AAElC,QAAA,OAAO,GAAG;IACrB,OAAO,EAAE,uBAAU;IACnB,OAAO,EAAE,uBAAU;IACnB,KAAK,EAAE,mBAAQ;CAChB,CAAC"}
+{"version":3,"file":"PokeSDK.js","sourceRoot":"","sources":["../src/PokeSDK.ts"],"names":[],"mappings":";;;AAAA,8CAA2C;AAC3C,kDAA+C;AAC/C,kDAA+C;AAC/C,qCAAqC;AAExB,QAAA,OAAO,GAAG;IACrB,OAAO,EAAE,uBAAU;IACnB,OAAO,EAAE,uBAAU;IACnB,KAAK,EAAE,mBAAQ;IACf,SAAS,EAAE,kBAAS;CACrB,CAAC"}

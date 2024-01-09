@@ -1,6 +1,5 @@
-import { AxiosResponse } from "axios";
-import { http } from "../http";
-import { PromiseResponse, Nature, Response } from "../models";
+import { JsonHttpResponse, http } from "../http";
+import { Nature, PromiseResponse, Response } from "../models";
 import { _handleResponse } from "./_handleResponse";
 
 export const NaturesApi = {
@@ -16,6 +15,6 @@ export const NaturesApi = {
   },
 };
 
-function _handleNatureResponse(response: AxiosResponse): Response<Nature> {
+function _handleNatureResponse(response: JsonHttpResponse): Response<Nature> {
   return _handleResponse(Nature, response);
 }

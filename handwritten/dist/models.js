@@ -23,8 +23,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ErrorCode = exports.Stat = exports.Nature = exports.Pokemon = exports.PokemonAbility = exports.PokemonType = exports.PokemonSprites = exports.PokemonStat = exports.PokemonMove = exports.PokemonMoveVersion = exports.PokemonHeldItem = exports.PokemonHeldItemVersion = exports.VersionGameIndex = exports.Ability = exports.AbilityFlavorText = exports.AbilityEffectChange = exports.Effect = exports.VerboseEffect = exports.Name = exports.NamedAPIResource = void 0;
+exports.ErrorCode = exports.Stat = exports.Characteristic = exports.Description = exports.Nature = exports.Pokemon = exports.PokemonAbility = exports.PokemonType = exports.PokemonSprites = exports.PokemonStat = exports.PokemonMove = exports.PokemonMoveVersion = exports.PokemonHeldItem = exports.PokemonHeldItemVersion = exports.VersionGameIndex = exports.Ability = exports.AbilityFlavorText = exports.AbilityEffectChange = exports.Effect = exports.VerboseEffect = exports.Name = exports.NamedAPIResource = exports.APIResource = void 0;
 const z = __importStar(require("zod"));
+exports.APIResource = z.object({
+    /* The URL of the referenced resource */
+    url: z.string(),
+});
 exports.NamedAPIResource = z.object({
     /* The name of the referenced resource */
     name: z.string(),
@@ -189,11 +193,13 @@ const NatureStatChange = z.object({
     /* The stat being affected */
     pokeathlon_stat: exports.NamedAPIResource,
 });
-const NaturePokeathlonStatAffect = z.object({
-    /* The maximum amount of change to the referenced Pokéathlon stat */
-    max_change: z.number(),
-    /* The nature causing the change */
-    nature: exports.NamedAPIResource,
+const MoveBattleStylePreference = z.object({
+    /* Chance of using the move, in percent, if HP is under one half */
+    low_hp_preference: z.number(),
+    /* Chance of using the move, in percent, if HP is over one half */
+    high_hp_preference: z.number(),
+    /* The move battle style */
+    move_battle_style: exports.NamedAPIResource,
 });
 const NatureName = z.object({
     /* The localized name for an API resource in a specific language */
@@ -207,9 +213,9 @@ exports.Nature = z.object({
     /* The name for this resource */
     name: z.string(),
     /* The stat decreased by 10% in Pokémon with this nature */
-    decreased_stat: exports.NamedAPIResource,
+    decreased_stat: exports.NamedAPIResource.nullable(),
     /* The stat increased by 10% in Pokémon with this nature */
-    increased_stat: exports.NamedAPIResource,
+    increased_stat: exports.NamedAPIResource.nullable(),
     /* The flavor hated by Pokémon with this nature */
     hates_flavor: exports.NamedAPIResource,
     /* The flavor liked by Pokémon with this nature */
@@ -217,9 +223,27 @@ exports.Nature = z.object({
     /* A list of Pokéathlon stats this nature effects and how much it effects them */
     pokeathlon_stat_changes: z.array(NatureStatChange),
     /* A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. */
-    move_battle_style_preferences: z.array(NaturePokeathlonStatAffect),
+    move_battle_style_preferences: z.array(MoveBattleStylePreference),
     /* The name of this resource listed in different languages */
     names: z.array(NatureName),
+});
+exports.Description = z.object({
+    /* The localized description for an API resource in a specific language */
+    description: z.string(),
+    /* The language this name is in */
+    language: exports.NamedAPIResource,
+});
+exports.Characteristic = z.object({
+    /* The identifier for this resource */
+    id: z.number(),
+    /* The remainder of the highest stat/IV divided by 5 */
+    gene_modulo: z.number(),
+    /* The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5 */
+    possible_values: z.array(z.number()),
+    /* The highest stat of this characteristic */
+    highest_stat: exports.NamedAPIResource,
+    /* The descriptions of this characteristic listed in different languages */
+    descriptions: z.array(exports.Description),
 });
 exports.Stat = z.object({
     /* The identifier for this resource */
@@ -265,16 +289,16 @@ exports.Stat = z.object({
         })),
     }),
     /* A list of characteristics that are set on a Pokémon when its highest base stat is this stat */
-    characteristics: z.array(exports.NamedAPIResource),
+    characteristics: z.array(exports.APIResource),
     /* The class of damage this stat is directly related to */
-    move_damage_class: exports.NamedAPIResource,
+    move_damage_class: exports.NamedAPIResource.nullable(),
     /* The name of this resource listed in different languages */
     names: z.array(exports.Name),
 });
 var ErrorCode;
 (function (ErrorCode) {
     ErrorCode["NotFound"] = "NotFound";
-    ErrorCode["ParseResponseError"] = "ParseResponseError";
+    ErrorCode["ParseResponse"] = "ParseResponse";
     ErrorCode["Unknown"] = "Unknown";
 })(ErrorCode || (exports.ErrorCode = ErrorCode = {}));
 //# sourceMappingURL=models.js.map

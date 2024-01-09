@@ -1,3 +1,4 @@
+import { ErrorCode } from "./models";
 export declare const PokeSDK: {
     pokemon: {
         get: (id: number) => import("./models").PromiseResponse<{
@@ -191,11 +192,11 @@ export declare const PokeSDK: {
             decreased_stat: {
                 url: string;
                 name: string;
-            };
+            } | null;
             increased_stat: {
                 url: string;
                 name: string;
-            };
+            } | null;
             hates_flavor: {
                 url: string;
                 name: string;
@@ -212,8 +213,9 @@ export declare const PokeSDK: {
                 };
             }[];
             move_battle_style_preferences: {
-                max_change: number;
-                nature: {
+                low_hp_preference: number;
+                high_hp_preference: number;
+                move_battle_style: {
                     url: string;
                     name: string;
                 };
@@ -232,11 +234,11 @@ export declare const PokeSDK: {
             decreased_stat: {
                 url: string;
                 name: string;
-            };
+            } | null;
             increased_stat: {
                 url: string;
                 name: string;
-            };
+            } | null;
             hates_flavor: {
                 url: string;
                 name: string;
@@ -253,8 +255,9 @@ export declare const PokeSDK: {
                 };
             }[];
             move_battle_style_preferences: {
-                max_change: number;
-                nature: {
+                low_hp_preference: number;
+                high_hp_preference: number;
+                move_battle_style: {
                     url: string;
                     name: string;
                 };
@@ -292,28 +295,27 @@ export declare const PokeSDK: {
             };
             affecting_natures: {
                 increase: {
+                    change: number;
                     nature: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
                 decrease: {
+                    change: number;
                     nature: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
             };
             characteristics: {
                 url: string;
-                name: string;
             }[];
             move_damage_class: {
                 url: string;
                 name: string;
-            };
+            } | null;
         }>;
         getByName: (name: string) => import("./models").PromiseResponse<{
             name: string;
@@ -345,29 +347,29 @@ export declare const PokeSDK: {
             };
             affecting_natures: {
                 increase: {
+                    change: number;
                     nature: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
                 decrease: {
+                    change: number;
                     nature: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
             };
             characteristics: {
                 url: string;
-                name: string;
             }[];
             move_damage_class: {
                 url: string;
                 name: string;
-            };
+            } | null;
         }>;
     };
+    errorCode: typeof ErrorCode;
 };
 //# sourceMappingURL=PokeSDK.d.ts.map

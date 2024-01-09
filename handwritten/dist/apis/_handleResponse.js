@@ -9,6 +9,7 @@ function _handleResponse(schema, response) {
     }
     if (response.status >= 400) {
         return {
+            ok: false,
             status: response.status,
             data: response.data,
             error: String(response.data),
@@ -16,9 +17,10 @@ function _handleResponse(schema, response) {
         };
     }
     const parseResult = schema.safeParse(response.data);
-    errorCode = models_1.ErrorCode.ParseResponseError;
+    errorCode = models_1.ErrorCode.ParseResponse;
     if (parseResult.success === false) {
         return {
+            ok: false,
             status: 500,
             data: response.data,
             error: parseResult.error.toString(),
@@ -26,6 +28,7 @@ function _handleResponse(schema, response) {
         };
     }
     return {
+        ok: true,
         status: response.status,
         data: parseResult.data,
     };

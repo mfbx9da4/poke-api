@@ -1,5 +1,12 @@
 import * as z from "zod";
 
+export const APIResource = z.object({
+  /* The URL of the referenced resource */
+  url: z.string(),
+});
+
+export type APIResource = z.infer<typeof APIResource>;
+
 export const NamedAPIResource = z.object({
   /* The name of the referenced resource */
   name: z.string(),
@@ -112,12 +119,12 @@ export const PokemonStat = z.object({
 });
 export type PokemonStat = z.infer<typeof PokemonStat>;
 export const PokemonSprites = z.object({
-  front_default: z.string(),
-  front_shiny: z.string(),
+  front_default: z.string().nullable(),
+  front_shiny: z.string().nullable(),
   front_female: z.string().nullable(),
   front_shiny_female: z.string().nullable(),
-  back_default: z.string(),
-  back_shiny: z.string(),
+  back_default: z.string().nullable(),
+  back_shiny: z.string().nullable(),
   back_female: z.string().nullable(),
   back_shiny_female: z.string().nullable(),
 });
@@ -148,7 +155,7 @@ export const Pokemon = z.object({
   /* The name for this resource */
   name: z.string(),
   /* The base experience gained for defeating this Pokémon */
-  base_experience: z.number(),
+  base_experience: z.number().nullable(),
   /* The height of this Pokémon in decimetres */
   height: z.number(),
   /* Set for exactly one Pokémon used as the default for each species */
@@ -187,13 +194,18 @@ const NatureStatChange = z.object({
   pokeathlon_stat: NamedAPIResource,
 });
 type NatureStatChange = z.infer<typeof NatureStatChange>;
-const NaturePokeathlonStatAffect = z.object({
-  /* The maximum amount of change to the referenced Pokéathlon stat */
-  max_change: z.number(),
-  /* The nature causing the change */
-  nature: NamedAPIResource,
+
+const MoveBattleStylePreference = z.object({
+  /* Chance of using the move, in percent, if HP is under one half */
+  low_hp_preference: z.number(),
+  /* Chance of using the move, in percent, if HP is over one half */
+  high_hp_preference: z.number(),
+  /* The move battle style */
+  move_battle_style: NamedAPIResource,
 });
-type NaturePokeathlonStatAffect = z.infer<typeof NaturePokeathlonStatAffect>;
+
+type MoveBattleStylePreference = z.infer<typeof MoveBattleStylePreference>;
+
 const NatureName = z.object({
   /* The localized name for an API resource in a specific language */
   name: z.string(),
@@ -208,22 +220,46 @@ export const Nature = z.object({
   /* The name for this resource */
   name: z.string(),
   /* The stat decreased by 10% in Pokémon with this nature */
-  decreased_stat: NamedAPIResource,
+  decreased_stat: NamedAPIResource.nullable(),
   /* The stat increased by 10% in Pokémon with this nature */
-  increased_stat: NamedAPIResource,
+  increased_stat: NamedAPIResource.nullable(),
   /* The flavor hated by Pokémon with this nature */
-  hates_flavor: NamedAPIResource,
+  hates_flavor: NamedAPIResource.nullable(),
   /* The flavor liked by Pokémon with this nature */
-  likes_flavor: NamedAPIResource,
+  likes_flavor: NamedAPIResource.nullable(),
   /* A list of Pokéathlon stats this nature effects and how much it effects them */
   pokeathlon_stat_changes: z.array(NatureStatChange),
   /* A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. */
-  move_battle_style_preferences: z.array(NaturePokeathlonStatAffect),
+  move_battle_style_preferences: z.array(MoveBattleStylePreference),
   /* The name of this resource listed in different languages */
   names: z.array(NatureName),
 });
 
 export type Nature = z.infer<typeof Nature>;
+
+export const Description = z.object({
+  /* The localized description for an API resource in a specific language */
+  description: z.string(),
+  /* The language this name is in */
+  language: NamedAPIResource,
+});
+
+export type Description = z.infer<typeof Description>;
+
+export const Characteristic = z.object({
+  /* The identifier for this resource */
+  id: z.number(),
+  /* The remainder of the highest stat/IV divided by 5 */
+  gene_modulo: z.number(),
+  /* The possible values of the highest stat that would result in a Pokémon recieving this characteristic when divided by 5 */
+  possible_values: z.array(z.number()),
+  /* The highest stat of this characteristic */
+  highest_stat: NamedAPIResource,
+  /* The descriptions of this characteristic listed in different languages */
+  descriptions: z.array(Description),
+});
+
+export type Characteristic = z.infer<typeof Characteristic>;
 
 export const Stat = z.object({
   /* The identifier for this resource */
@@ -277,22 +313,22 @@ export const Stat = z.object({
     ),
   }),
   /* A list of characteristics that are set on a Pokémon when its highest base stat is this stat */
-  characteristics: z.array(NamedAPIResource),
+  characteristics: z.array(APIResource),
   /* The class of damage this stat is directly related to */
-  move_damage_class: NamedAPIResource,
+  move_damage_class: NamedAPIResource.nullable(),
   /* The name of this resource listed in different languages */
   names: z.array(Name),
 });
 
 export type Stat = z.infer<typeof Stat>;
-type SuccessResponse<T> = {
+export type SuccessResponse<T> = {
   ok: true;
   status: number;
   data: T;
   error?: undefined;
   errorCode?: undefined;
 };
-type ErrorResponse = {
+export type ErrorResponse = {
   ok: false;
   status: number;
   data: any;

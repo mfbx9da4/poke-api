@@ -1,4 +1,4 @@
-import { PromiseResponse, Nature } from "../models";
+import { Nature, PromiseResponse } from "../models";
 export declare const NaturesApi: {
     /** Natures influence how a Pokémon's stats grow. See Bulbapedia for greater detail. */
     get: (id: number) => PromiseResponse<Nature>;

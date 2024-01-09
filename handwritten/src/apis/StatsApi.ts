@@ -1,6 +1,5 @@
-import { AxiosResponse } from "axios";
-import { http } from "../http";
-import { PromiseResponse, Stat, Response } from "../models";
+import { JsonHttpResponse, http } from "../http";
+import { PromiseResponse, Response, Stat } from "../models";
 import { _handleResponse } from "./_handleResponse";
 
 export const StatsApi = {
@@ -16,6 +15,6 @@ export const StatsApi = {
   },
 };
 
-function _handleStatResponse(response: AxiosResponse): Response<Stat> {
+function _handleStatResponse(response: JsonHttpResponse): Response<Stat> {
   return _handleResponse(Stat, response);
 }

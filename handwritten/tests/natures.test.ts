@@ -8,11 +8,13 @@ const it = suite("PokeSDK/natures");
 
 it("should get record by ID", async () => {
   const result = await PokeSDK.natures.get(1);
+  assert.ok(result.ok, "result.ok should be true");
   assert.ok(result.data, "result.data should exist");
 });
 
 it("should get record by name", async () => {
-  const result = await PokeSDK.natures.getByName("bulbasaur");
+  const result = await PokeSDK.natures.getByName("hardy");
+  assert.ok(result.ok, "result.ok should be true");
   assert.ok(result.data, "result.data should exist");
 });
 
@@ -36,5 +38,20 @@ it("should throw ParseResponse Error", async () => {
   // Restore the server
   http.get = oldGet;
 });
+
+if (process.env["BRUTE_FORCE_TEST_PARSE_RECORDS"]) {
+  it("should be able to parse all records", async () => {
+    let i = 0;
+    while (++i) {
+      const result = await PokeSDK.natures.get(i);
+      if (result.status === 404) return;
+      if (!result.ok) {
+        console.log("result", JSON.stringify(result, null, 2));
+        console.log("result.error", result.error);
+      }
+      assert.ok(result.ok, `result.ok should be true for ${i}`);
+    }
+  });
+}
 
 it.run();

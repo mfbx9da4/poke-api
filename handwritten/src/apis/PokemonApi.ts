@@ -1,6 +1,5 @@
-import { AxiosResponse } from "axios";
-import { http } from "../http";
-import { PromiseResponse, Pokemon, Response } from "../models";
+import { JsonHttpResponse, http } from "../http";
+import { Pokemon, PromiseResponse, Response } from "../models";
 import { _handleResponse } from "./_handleResponse";
 
 export const PokemonApi = {
@@ -18,6 +17,6 @@ export const PokemonApi = {
   },
 };
 
-function _handlePokemonResponse(response: AxiosResponse): Response<Pokemon> {
+function _handlePokemonResponse(response: JsonHttpResponse): Response<Pokemon> {
   return _handleResponse(Pokemon, response);
 }
