@@ -26,7 +26,7 @@ The pros of generating the SDK are:
 
 ## Notes on the Handwritten SDK
 
-- To run the tests follow the instructions in [CONTRIBUTING.md](`/handwritten/CONTRIBUTING.md`.)
+- To run the tests follow the instructions in [./handwritten/CONTRIBUTING.md](`./handwritten/CONTRIBUTING.md`.)
 - **Peer dependencies vs bundled dependencies**: The age old dilemma of static vs dynamic linking. For user convenience I went for bundling zod but it would be nice to provide the option to use a shared version to save space.
 - **SDK validation**: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
 - **Error handling**: I always appreciate having predefined error codes which is why I have included `PokeSDK.errorCode`. I prefer error codes rather than `instanceof` checks since codes will survive JSON stringification which I've run into in the past.
