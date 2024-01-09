@@ -18,7 +18,7 @@
   },
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./dist && tsc -p tsconfig.build.json",
     "prepare": "npm run build",
     "test": "uvu -r tsm tests",
     "generate": "openapi-generator generate -i ./openapi.yaml -g typescript -o ./ --package-name=poke-api --ignore-file-override=\"README.md,package.json,package-lock.json\""
