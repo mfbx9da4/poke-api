@@ -88,18 +88,8 @@ const result = await apiInstance.natureRead("adamant");
 
 ### Return type
 
-**Nature**
-| Name | Type | Nullable | Description |
-| ---- | ---- | -------- | ----------- |
-| **id** | **number** | | The identifier for this nature resource |
-| **name** | **string** | | The name for this nature resource |
-| **decreasedStat** | [**NamedApiResource**](NamedApiResource.md) | | The stat decreased by 10% in Pokémon with this nature |
-| **increasedStat** | [**NamedApiResource**](NamedApiResource.md) | | The stat increased by 10% in Pokémon with this nature |
-| **hatesFlavor** | [**NamedApiResource**](NamedApiResource.md) | | The flavor hated by Pokémon with this nature |
-| **likesFlavor** | [**NamedApiResource**](NamedApiResource.md) | | The flavor liked by Pokémon with this nature |
-| **pokeathlonStatChanges** | [**NatureStatChange**](NatureStatChange.md) | | A list of Pokéathlon stats this nature effects and how much it effects them |
-| **moveBattleStylePreferences** | [**MoveBattleStylePreference**](MoveBattleStylePreference.md) | | A list of battle styles and how likely a Pokémon with this nature is to use them in the Battle Palace or Battle Tent. |
-| **names** | [**Name**](Name.md) | | The name of this nature listed in different languages. |
+- Returns a single [**Nature**](./models/Nature.ts)
+- For more details see the [official documentation](https://pokeapi.co/docs/v2#natures)
 
 ### Authorization
 

@@ -88,18 +88,8 @@ const result = await apiInstance.statRead("hp");
 
 ### Return type
 
-**Stat**
-
-| Name                | Type                                    | Nullable | Description                                                                                 |
-| ------------------- | --------------------------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| **id**              | **number**                              |          | The identifier for this stat resource                                                       |
-| **name**            | **string**                              |          | The name for this stat resource                                                             |
-| **gameIndex**       | **number**                              |          | ID the games use for this stat                                                              |
-| **isBattleOnly**    | **boolean**                             |          | Whether this stat only exists within a battle                                               |
-| **affectingMoves**  | [**StatAffectSets**](StatAffectSets.md) |          | A detail of moves which affect this stat positively or negatively                           |
-| **characteristics** | [**ApiResource**](ApiResource.md)       |          | A list of characteristics that are set on a Pokémon when its highest base stat is this stat |
-| **moveDamageClass** | [**ApiResource**](ApiResource.md)       |          | The class of damage this stat is directly related to                                        |
-| **names**           | [**Name**](Name.md)                     |          | The name of this region listed in different languages                                       |
+- Returns a single [**Stat**](./models/Stat.ts)
+- For more details see the [official documentation](https://pokeapi.co/docs/v2#stats)
 
 ### Authorization
 

@@ -23,6 +23,7 @@ const browserJsonHttp: JsonHttpClientConstructor = (config) => {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", `${baseUrl}${path}`);
       xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Accept", "application/json");
       xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
           let data: any = xhr.responseText;
@@ -66,6 +67,7 @@ const nodeJsonHttp: JsonHttpClientConstructor = (config) => {
       });
       request.on("error", (error) => resolve({ status: 500, data: error }));
       request.setHeader("Content-Type", "application/json");
+      request.setHeader("Accept", "application/json");
       request.end();
     });
   };
