@@ -25,7 +25,7 @@ if (result.ok) {
 
 ### Error Handling
 
-- Common errors will be handled [by the known error codes](./src/models/Response.ts)
+- Common errors will be handled [by the known error codes which can be accessed from `PokeSDK.errorCode`](./src/models/Response.ts)
 - Even if there is an error, the `data` field will be populated with the response from the server. You may be able to salvage data from there or gather more information about the error.
 
 ### Get Pokemon
