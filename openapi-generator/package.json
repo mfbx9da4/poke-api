@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@types/url-parse": "1.4.4",
-    "typescript": "^4.0",
     "tsm": "^2.3.0",
+    "typescript": "^4.0",
     "uvu": "^0.5.6"
   }
 }
