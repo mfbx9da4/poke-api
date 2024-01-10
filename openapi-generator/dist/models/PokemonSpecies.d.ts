@@ -1,0 +1,55 @@
+import { Description } from '../models/Description';
+import { EggGroup } from '../models/EggGroup';
+import { EvolutionChain } from '../models/EvolutionChain';
+import { FlavorText } from '../models/FlavorText';
+import { Generation } from '../models/Generation';
+import { Genus } from '../models/Genus';
+import { GrowthRate } from '../models/GrowthRate';
+import { Name } from '../models/Name';
+import { PalParkEncounterArea } from '../models/PalParkEncounterArea';
+import { PokemonColor } from '../models/PokemonColor';
+import { PokemonHabitat } from '../models/PokemonHabitat';
+import { PokemonShape } from '../models/PokemonShape';
+import { PokemonSpeciesDexEntry } from '../models/PokemonSpeciesDexEntry';
+import { PokemonSpeciesVariety } from '../models/PokemonSpeciesVariety';
+export declare class PokemonSpecies {
+    'id'?: number;
+    'name'?: string;
+    'order'?: number;
+    'genderRate'?: number;
+    'captureRate'?: number;
+    'baseHappiness'?: number;
+    'isBaby'?: boolean;
+    'hatchCounter'?: number;
+    'hasGenderDifferences'?: boolean;
+    'formsSwitchable'?: boolean;
+    'growthRate'?: GrowthRate;
+    'pokedexNumbers'?: Array<PokemonSpeciesDexEntry>;
+    'eggGroups'?: Array<EggGroup>;
+    'color'?: PokemonColor;
+    'shape'?: PokemonShape;
+    'evolvesFromSpecies'?: PokemonSpecies;
+    'evolutionChain'?: EvolutionChain;
+    'habitat'?: PokemonHabitat;
+    'generation'?: Generation;
+    'names'?: Array<Name>;
+    'palParkEncounters'?: Array<PalParkEncounterArea>;
+    'flavorTextEntries'?: Array<FlavorText>;
+    'formDescriptions'?: Array<Description>;
+    'genera'?: Array<Genus>;
+    'varieties'?: Array<PokemonSpeciesVariety>;
+    static readonly discriminator: string | undefined;
+    static readonly attributeTypeMap: Array<{
+        name: string;
+        baseName: string;
+        type: string;
+        format: string;
+    }>;
+    static getAttributeTypeMap(): {
+        name: string;
+        baseName: string;
+        type: string;
+        format: string;
+    }[];
+    constructor();
+}

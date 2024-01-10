@@ -1,0 +1,76 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.VersionGroupApi = exports.VersionApi = exports.TypeApi = exports.SuperContestEffectApi = exports.StatApi = exports.RegionApi = exports.PokemonSpeciesApi = exports.PokemonShapeApi = exports.PokemonHabitatApi = exports.PokemonFormApi = exports.PokemonColorApi = exports.PokemonApi = exports.PokedexApi = exports.PokeathlonStatApi = exports.PalParkAreaApi = exports.NatureApi = exports.MoveTargetApi = exports.MoveLearnMethodApi = exports.MoveDamageClassApi = exports.MoveCategoryApi = exports.MoveBattleStyleApi = exports.MoveAilmentApi = exports.MoveApi = exports.MachineApi = exports.LocationAreaApi = exports.LocationApi = exports.LanguageApi = exports.ItemPocketApi = exports.ItemFlingEffectApi = exports.ItemCategoryApi = exports.ItemAttributeApi = exports.ItemApi = exports.GrowthRateApi = exports.GenerationApi = exports.GenderApi = exports.EvolutionTriggerApi = exports.EvolutionChainApi = exports.EncounterMethodApi = exports.EncounterConditionValueApi = exports.EncounterConditionApi = exports.EggGroupApi = exports.ContestTypeApi = exports.ContestEffectApi = exports.CharacteristicApi = exports.BerryFlavorApi = exports.BerryFirmnessApi = exports.BerryApi = exports.AbilityApi = exports.RequiredError = exports.createConfiguration = void 0;
+__exportStar(require("./http/http"), exports);
+__exportStar(require("./auth/auth"), exports);
+__exportStar(require("./models/all"), exports);
+var configuration_1 = require("./configuration");
+Object.defineProperty(exports, "createConfiguration", { enumerable: true, get: function () { return configuration_1.createConfiguration; } });
+__exportStar(require("./apis/exception"), exports);
+__exportStar(require("./servers"), exports);
+var baseapi_1 = require("./apis/baseapi");
+Object.defineProperty(exports, "RequiredError", { enumerable: true, get: function () { return baseapi_1.RequiredError; } });
+var PromiseAPI_1 = require("./types/PromiseAPI");
+Object.defineProperty(exports, "AbilityApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseAbilityApi; } });
+Object.defineProperty(exports, "BerryApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseBerryApi; } });
+Object.defineProperty(exports, "BerryFirmnessApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseBerryFirmnessApi; } });
+Object.defineProperty(exports, "BerryFlavorApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseBerryFlavorApi; } });
+Object.defineProperty(exports, "CharacteristicApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseCharacteristicApi; } });
+Object.defineProperty(exports, "ContestEffectApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseContestEffectApi; } });
+Object.defineProperty(exports, "ContestTypeApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseContestTypeApi; } });
+Object.defineProperty(exports, "EggGroupApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEggGroupApi; } });
+Object.defineProperty(exports, "EncounterConditionApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEncounterConditionApi; } });
+Object.defineProperty(exports, "EncounterConditionValueApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEncounterConditionValueApi; } });
+Object.defineProperty(exports, "EncounterMethodApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEncounterMethodApi; } });
+Object.defineProperty(exports, "EvolutionChainApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEvolutionChainApi; } });
+Object.defineProperty(exports, "EvolutionTriggerApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseEvolutionTriggerApi; } });
+Object.defineProperty(exports, "GenderApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseGenderApi; } });
+Object.defineProperty(exports, "GenerationApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseGenerationApi; } });
+Object.defineProperty(exports, "GrowthRateApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseGrowthRateApi; } });
+Object.defineProperty(exports, "ItemApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseItemApi; } });
+Object.defineProperty(exports, "ItemAttributeApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseItemAttributeApi; } });
+Object.defineProperty(exports, "ItemCategoryApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseItemCategoryApi; } });
+Object.defineProperty(exports, "ItemFlingEffectApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseItemFlingEffectApi; } });
+Object.defineProperty(exports, "ItemPocketApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseItemPocketApi; } });
+Object.defineProperty(exports, "LanguageApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseLanguageApi; } });
+Object.defineProperty(exports, "LocationApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseLocationApi; } });
+Object.defineProperty(exports, "LocationAreaApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseLocationAreaApi; } });
+Object.defineProperty(exports, "MachineApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMachineApi; } });
+Object.defineProperty(exports, "MoveApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveApi; } });
+Object.defineProperty(exports, "MoveAilmentApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveAilmentApi; } });
+Object.defineProperty(exports, "MoveBattleStyleApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveBattleStyleApi; } });
+Object.defineProperty(exports, "MoveCategoryApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveCategoryApi; } });
+Object.defineProperty(exports, "MoveDamageClassApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveDamageClassApi; } });
+Object.defineProperty(exports, "MoveLearnMethodApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveLearnMethodApi; } });
+Object.defineProperty(exports, "MoveTargetApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseMoveTargetApi; } });
+Object.defineProperty(exports, "NatureApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseNatureApi; } });
+Object.defineProperty(exports, "PalParkAreaApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePalParkAreaApi; } });
+Object.defineProperty(exports, "PokeathlonStatApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokeathlonStatApi; } });
+Object.defineProperty(exports, "PokedexApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokedexApi; } });
+Object.defineProperty(exports, "PokemonApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonApi; } });
+Object.defineProperty(exports, "PokemonColorApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonColorApi; } });
+Object.defineProperty(exports, "PokemonFormApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonFormApi; } });
+Object.defineProperty(exports, "PokemonHabitatApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonHabitatApi; } });
+Object.defineProperty(exports, "PokemonShapeApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonShapeApi; } });
+Object.defineProperty(exports, "PokemonSpeciesApi", { enumerable: true, get: function () { return PromiseAPI_1.PromisePokemonSpeciesApi; } });
+Object.defineProperty(exports, "RegionApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseRegionApi; } });
+Object.defineProperty(exports, "StatApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseStatApi; } });
+Object.defineProperty(exports, "SuperContestEffectApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseSuperContestEffectApi; } });
+Object.defineProperty(exports, "TypeApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseTypeApi; } });
+Object.defineProperty(exports, "VersionApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseVersionApi; } });
+Object.defineProperty(exports, "VersionGroupApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseVersionGroupApi; } });
+//# sourceMappingURL=index.js.map
