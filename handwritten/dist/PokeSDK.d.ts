@@ -1,17 +1,17 @@
-import { ErrorCode } from "./models";
+import { ErrorCode } from "./models/Response";
 export declare const PokeSDK: {
     pokemon: {
-        get: (id: number) => import("./models").PromiseResponse<{
+        get: (id: number) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
-            base_experience: number;
+            base_experience: number | null;
             height: number;
             is_default: boolean;
             order: number;
             weight: number;
             abilities: {
-                is_hidden: boolean;
                 slot: number;
+                is_hidden: boolean;
                 ability: {
                     url: string;
                     name: string;
@@ -48,11 +48,11 @@ export declare const PokeSDK: {
                     name: string;
                 };
                 version_group_details: {
-                    version_group: {
+                    move_learn_method: {
                         url: string;
                         name: string;
                     };
-                    move_learn_method: {
+                    version_group: {
                         url: string;
                         name: string;
                     };
@@ -60,12 +60,12 @@ export declare const PokeSDK: {
                 }[];
             }[];
             sprites: {
-                front_default: string;
-                front_shiny: string;
+                front_default: string | null;
+                front_shiny: string | null;
                 front_female: string | null;
                 front_shiny_female: string | null;
-                back_default: string;
-                back_shiny: string;
+                back_default: string | null;
+                back_shiny: string | null;
                 back_female: string | null;
                 back_shiny_female: string | null;
             };
@@ -89,17 +89,17 @@ export declare const PokeSDK: {
                 slot: number;
             }[];
         }>;
-        getByName: (name: string) => import("./models").PromiseResponse<{
+        getByName: (name: string) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
-            base_experience: number;
+            base_experience: number | null;
             height: number;
             is_default: boolean;
             order: number;
             weight: number;
             abilities: {
-                is_hidden: boolean;
                 slot: number;
+                is_hidden: boolean;
                 ability: {
                     url: string;
                     name: string;
@@ -136,11 +136,11 @@ export declare const PokeSDK: {
                     name: string;
                 };
                 version_group_details: {
-                    version_group: {
+                    move_learn_method: {
                         url: string;
                         name: string;
                     };
-                    move_learn_method: {
+                    version_group: {
                         url: string;
                         name: string;
                     };
@@ -148,12 +148,12 @@ export declare const PokeSDK: {
                 }[];
             }[];
             sprites: {
-                front_default: string;
-                front_shiny: string;
+                front_default: string | null;
+                front_shiny: string | null;
                 front_female: string | null;
                 front_shiny_female: string | null;
-                back_default: string;
-                back_shiny: string;
+                back_default: string | null;
+                back_shiny: string | null;
                 back_female: string | null;
                 back_shiny_female: string | null;
             };
@@ -179,7 +179,7 @@ export declare const PokeSDK: {
         }>;
     };
     natures: {
-        get: (id: number) => import("./models").PromiseResponse<{
+        get: (id: number) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
             names: {
@@ -200,11 +200,11 @@ export declare const PokeSDK: {
             hates_flavor: {
                 url: string;
                 name: string;
-            };
+            } | null;
             likes_flavor: {
                 url: string;
                 name: string;
-            };
+            } | null;
             pokeathlon_stat_changes: {
                 max_change: number;
                 pokeathlon_stat: {
@@ -221,7 +221,7 @@ export declare const PokeSDK: {
                 };
             }[];
         }>;
-        getByName: (name: string) => import("./models").PromiseResponse<{
+        getByName: (name: string) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
             names: {
@@ -242,11 +242,11 @@ export declare const PokeSDK: {
             hates_flavor: {
                 url: string;
                 name: string;
-            };
+            } | null;
             likes_flavor: {
                 url: string;
                 name: string;
-            };
+            } | null;
             pokeathlon_stat_changes: {
                 max_change: number;
                 pokeathlon_stat: {
@@ -265,32 +265,25 @@ export declare const PokeSDK: {
         }>;
     };
     stats: {
-        get: (id: number) => import("./models").PromiseResponse<{
+        get: (id: number) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
-            names: {
-                name: string;
-                language: {
-                    url: string;
-                    name: string;
-                };
-            }[];
             game_index: number;
             is_battle_only: boolean;
             affecting_moves: {
                 increase: {
+                    change: number;
                     move: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
                 decrease: {
+                    change: number;
                     move: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
             };
             affecting_natures: {
@@ -316,33 +309,33 @@ export declare const PokeSDK: {
                 url: string;
                 name: string;
             } | null;
+            names: {
+                name: string;
+                language: {
+                    url: string;
+                    name: string;
+                };
+            }[];
         }>;
-        getByName: (name: string) => import("./models").PromiseResponse<{
+        getByName: (name: string) => import("./models/Response").PromiseResponse<{
             name: string;
             id: number;
-            names: {
-                name: string;
-                language: {
-                    url: string;
-                    name: string;
-                };
-            }[];
             game_index: number;
             is_battle_only: boolean;
             affecting_moves: {
                 increase: {
+                    change: number;
                     move: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
                 decrease: {
+                    change: number;
                     move: {
                         url: string;
                         name: string;
                     };
-                    change: number;
                 }[];
             };
             affecting_natures: {
@@ -368,6 +361,13 @@ export declare const PokeSDK: {
                 url: string;
                 name: string;
             } | null;
+            names: {
+                name: string;
+                language: {
+                    url: string;
+                    name: string;
+                };
+            }[];
         }>;
     };
     errorCode: typeof ErrorCode;

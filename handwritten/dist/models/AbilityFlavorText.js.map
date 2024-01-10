@@ -1,0 +1,1 @@
+{"version":3,"file":"AbilityFlavorText.js","sourceRoot":"","sources":["../../src/models/AbilityFlavorText.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,iBAAiB,GAAG,CAAC,CAAC,MAAM,CAAC;IACxC,mEAAmE;IACnE,WAAW,EAAE,CAAC,CAAC,MAAM,EAAE;IACvB,kCAAkC;IAClC,QAAQ,EAAE,mCAAgB;IAC1B,yDAAyD;IACzD,aAAa,EAAE,mCAAgB;CAChC,CAAC,CAAC"}

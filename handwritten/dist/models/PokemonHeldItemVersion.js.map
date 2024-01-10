@@ -1,0 +1,1 @@
+{"version":3,"file":"PokemonHeldItemVersion.js","sourceRoot":"","sources":["../../src/models/PokemonHeldItemVersion.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,sBAAsB,GAAG,CAAC,CAAC,MAAM,CAAC;IAC7C,2CAA2C;IAC3C,OAAO,EAAE,mCAAgB;IACzB,gCAAgC;IAChC,MAAM,EAAE,CAAC,CAAC,MAAM,EAAE;CACnB,CAAC,CAAC"}

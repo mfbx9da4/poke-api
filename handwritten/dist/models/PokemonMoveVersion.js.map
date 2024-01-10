@@ -1,0 +1,1 @@
+{"version":3,"file":"PokemonMoveVersion.js","sourceRoot":"","sources":["../../src/models/PokemonMoveVersion.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,kBAAkB,GAAG,CAAC,CAAC,MAAM,CAAC;IACzC,6CAA6C;IAC7C,iBAAiB,EAAE,mCAAgB;IACnC,oDAAoD;IACpD,aAAa,EAAE,mCAAgB;IAC/B,yCAAyC;IACzC,gBAAgB,EAAE,CAAC,CAAC,MAAM,EAAE;CAC7B,CAAC,CAAC"}

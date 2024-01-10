@@ -1,3 +1,9 @@
+export enum ErrorCode {
+  NotFound = "NotFound",
+  ParseResponse = "ParseResponse",
+  Unknown = "Unknown",
+}
+
 export type SuccessResponse<T> = {
   ok: true;
   status: number;
@@ -5,6 +11,7 @@ export type SuccessResponse<T> = {
   error?: undefined;
   errorCode?: undefined;
 };
+
 export type ErrorResponse = {
   ok: false;
   status: number;
@@ -12,12 +19,6 @@ export type ErrorResponse = {
   error: string;
   errorCode?: ErrorCode;
 };
-
-export enum ErrorCode {
-  NotFound = "NotFound",
-  ParseResponse = "ParseResponse",
-  Unknown = "Unknown",
-}
 
 export type Response<T> = SuccessResponse<T> | ErrorResponse;
 export type PromiseResponse<T> = Promise<Response<T>>;

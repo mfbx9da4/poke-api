@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._handleResponse = void 0;
-const models_1 = require("../models");
+const Response_1 = require("../models/Response");
 function _handleResponse(schema, response) {
-    let errorCode = models_1.ErrorCode.Unknown;
+    let errorCode = Response_1.ErrorCode.Unknown;
     if (response.status === 404) {
-        errorCode = models_1.ErrorCode.NotFound;
+        errorCode = Response_1.ErrorCode.NotFound;
     }
     if (response.status >= 400) {
         return {
@@ -17,7 +17,7 @@ function _handleResponse(schema, response) {
         };
     }
     const parseResult = schema.safeParse(response.data);
-    errorCode = models_1.ErrorCode.ParseResponse;
+    errorCode = Response_1.ErrorCode.ParseResponse;
     if (parseResult.success === false) {
         return {
             ok: false,

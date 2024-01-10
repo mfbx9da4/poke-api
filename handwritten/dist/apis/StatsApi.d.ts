@@ -1,4 +1,5 @@
-import { PromiseResponse, Stat } from "../models";
+import { PromiseResponse } from "../models/Response";
+import { Stat } from "../models/Stat";
 export declare const StatsApi: {
     /** Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles. See Bulbapedia for greater detail. */
     get: (id: number) => PromiseResponse<Stat>;

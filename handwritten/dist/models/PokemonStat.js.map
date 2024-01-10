@@ -1,0 +1,1 @@
+{"version":3,"file":"PokemonStat.js","sourceRoot":"","sources":["../../src/models/PokemonStat.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,WAAW,GAAG,CAAC,CAAC,MAAM,CAAC;IAClC,8BAA8B;IAC9B,IAAI,EAAE,mCAAgB;IACtB,wDAAwD;IACxD,MAAM,EAAE,CAAC,CAAC,MAAM,EAAE;IAClB,gCAAgC;IAChC,SAAS,EAAE,CAAC,CAAC,MAAM,EAAE;CACtB,CAAC,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"PokemonAbility.js","sourceRoot":"","sources":["../../src/models/PokemonAbility.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,cAAc,GAAG,CAAC,CAAC,MAAM,CAAC;IACrC,6CAA6C;IAC7C,SAAS,EAAE,CAAC,CAAC,OAAO,EAAE;IACtB,4DAA4D;IAC5D,IAAI,EAAE,CAAC,CAAC,MAAM,EAAE;IAChB,sCAAsC;IACtC,OAAO,EAAE,mCAAgB;CAC1B,CAAC,CAAC"}

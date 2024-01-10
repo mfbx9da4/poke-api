@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NaturesApi = void 0;
 const http_1 = require("../http");
-const models_1 = require("../models");
+const Nature_1 = require("../models/Nature");
 const _handleResponse_1 = require("./_handleResponse");
 exports.NaturesApi = {
     /** Natures influence how a Pokémon's stats grow. See Bulbapedia for greater detail. */
@@ -17,6 +17,6 @@ exports.NaturesApi = {
     },
 };
 function _handleNatureResponse(response) {
-    return (0, _handleResponse_1._handleResponse)(models_1.Nature, response);
+    return (0, _handleResponse_1._handleResponse)(Nature_1.Nature, response);
 }
 //# sourceMappingURL=NaturesApi.js.map

@@ -16,12 +16,17 @@ const result = await PokeSDK.pokemon.get(1);
 if (result.ok) {
   console.log(result.data); // Type Pokemon
 } else {
-  console.error(result.error); // Type string
-  console.error(result.status); // Type number
-  console.error(result.data); // Type any
   console.error(result.errorCode); // Type enum PokeSDK.errorCode
+  console.error(result.status); // Type number
+  console.error(result.error); // Type string
+  console.error(result.data); // Type any
 }
 ```
+
+### Error Handling
+
+- Common errors will be handled [by the known error codes](./src/models/Response.ts)
+- Even if there is an error, the `data` field will be populated with the response from the server. You may be able to salvage data from there or gather more information about the error.
 
 ### Get Pokemon
 

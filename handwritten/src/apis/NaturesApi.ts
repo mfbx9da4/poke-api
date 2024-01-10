@@ -1,5 +1,5 @@
 import { JsonHttpResponse, http } from "../http";
-import { PromiseResponse, Response } from "../models/SuccessResponse";
+import { PromiseResponse, Response } from "../models/Response";
 import { Nature } from "../models/Nature";
 import { _handleResponse } from "./_handleResponse";
 

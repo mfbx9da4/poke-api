@@ -1,0 +1,1 @@
+{"version":3,"file":"NatureStatChange.js","sourceRoot":"","sources":["../../src/models/NatureStatChange.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uCAAyB;AACzB,yDAAsD;AAEzC,QAAA,gBAAgB,GAAG,CAAC,CAAC,MAAM,CAAC;IACvC,0BAA0B;IAC1B,UAAU,EAAE,CAAC,CAAC,MAAM,EAAE;IACtB,6BAA6B;IAC7B,eAAe,EAAE,mCAAgB;CAClC,CAAC,CAAC"}

@@ -2,7 +2,7 @@ import { suite } from "uvu";
 import * as assert from "uvu/assert";
 import { PokeSDK } from "../src";
 import { http } from "../src/http";
-import { ErrorCode } from "../src/models/SuccessResponse";
+import { ErrorCode } from "../src/models/Response";
 import { Pokemon } from "../src/models/Pokemon";
 import { Expect, Equal } from "./ExpectTypes";
 
