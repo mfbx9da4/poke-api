@@ -29,8 +29,8 @@ The pros of generating the SDK are:
 
 ## Running Tests
 
-- For the handwritten SDK: `cd handwritten && npm test` (see [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md))
-- For the Openapi generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
+- Run tests for the handwritten SDK: `cd handwritten && npm test` (see [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md))
+- Run tests for the Openapi generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
 
 ## Notes on the Handwritten SDK
 
@@ -41,7 +41,7 @@ The pros of generating the SDK are:
 - **Documentation redundancy**: The way I have implemented the SDK, the documentation is copied from the website and included in the JS Doc comments and the readme. This is terrible. Again, a central schema would be ideal.
 - **Validation redundancy**: The SDK and the server perform the same validation of inputs and outputs. Moving to a central schema which generates all of these runtime checks would be ideal.
 - **Examples / test redundancy**: The examples are almost the same code as the tests. Ideally there would be a single source of truth because it gives the user confidence that the examples are correct.
-- **HTTP client**: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 5x the size of the rest of the SDK. I manually tested this client in the browser but it would be better to automate these browser tests like the node ones.
+- **HTTP client**: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 5x the size of the rest of the SDK. While I manually tested this client in the browser, automating these browser tests, like the node tests, would be preferable.
 - **Tree-shaking and ESM**: Although ESM compatible, something I didn't get to is, writing this as an ESM-first library as it should improve tree-shaking and future proof the SDK. I also would have liked to verify that tree-shaking is working as intended.
 
 ## Notes on Openapi Generator SDK
