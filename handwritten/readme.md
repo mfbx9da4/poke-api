@@ -38,6 +38,7 @@ const result = await PokeSDK.pokemon.getByName("bulbasaur");
 ```
 
 ```typescript
+// 👇 `result.data`
 type Pokemon = {
   /* The identifier for this resource */
   id?: number;
@@ -91,6 +92,7 @@ const result = await PokeSDK.stats.getByName("hp");
 ```
 
 ```typescript
+// 👇 `result.data`
 type Stat = {
   /* The identifier for this resource */
   id?: number;
@@ -128,6 +130,7 @@ const result = await PokeSDK.natures.getByName("hardy");
 ```
 
 ```typescript
+// 👇 `result.data`
 type Nature = {
   /* The identifier for this resource */
   id?: number;
