@@ -1,4 +1,4 @@
-## Aim
+## Goals & Assumptions
 
 - Production grade Typescript SDK for the [Pokemon API](https://pokeapi.co/)
 - Only supports `/pokemon/{id or name}`, `/stat/{id or name}` and `/nature/{id or name}` endpoints but built to be extensible
@@ -28,7 +28,7 @@ The pros of generating the SDK are:
 ## Running tests
 
 - For the handwritten SDK: `cd handwritten && npm test` (see [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md))
-- For the generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
+- For the Openapi generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
 
 ## Notes on the Handwritten SDK
 
@@ -42,7 +42,7 @@ The pros of generating the SDK are:
 - **HTTP client**: I built a tiny isomorphic JSON HTTP client which meets the needs of this read-only JSON API. It uses `XMLHttpRequest` in the browser and `https` in node for maximum backwards compatibility. The main advantage is not having to ship Axios which saves ~30kb which is around 5x the size of the rest of the SDK. I manually tested this client in the browser but it would be better to automate these browser tests like the node ones.
 - **Tree-shaking and ESM**: Although ESM compatible, something I didn't get to is, writing this as an ESM-first library as it should improve tree-shaking and future proof the SDK. I also would have liked to verify that tree-shaking is working as intended.
 
-## Notes on the Generated SDKs
+## Notes on Openapi Generator SDK
 
 - **Openapi.yaml**: Instead of parsing the official documentation and generating the `openapi.yaml` [I modified one somebody had made previously](https://github.com/cliffano/pokeapi-clients/blob/main/specification/pokeapi.yml). Ideally there would be a script to regenerate the `openapi.yaml` from the official documentation. Or better yet the official documentation would be generated from the `openapi.yaml`.
 - **Documentation**: The generator didn't output valid documentation so it required manual tweaking. I've linked to the official documentation instead of copying the documentation into the README so it doesn't quickly become stale. For the same reason I've linked to the schemas rather than documenting the types.
