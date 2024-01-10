@@ -1,8 +1,10 @@
+# Poke API Typescript SDK
+
 ## Goals & Assumptions
 
 - Production grade Typescript SDK for the [Pokemon API](https://pokeapi.co/)
 - Only supports `/pokemon/{id or name}`, `/stat/{id or name}` and `/nature/{id or name}` endpoints but built to be extensible
-- Imagine the existing typescript libraries do not exist
+- Suspend our disbelief that there is an existing typescript library for this API
 
 ## Approach
 
@@ -25,7 +27,7 @@ The pros of generating the SDK are:
 - **Checked-in node dependencies**: I shipped the `node_module`s with this repository so it's easy for you to run tests, you won't have to run `npm install`. I'm also not [opposed to that in general](https://www.jackfranklin.co.uk/blog/check-in-your-node-dependencies/).
 - **Speakeasy generator**: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it. It did in principle look like much better than openapi-generator as it used `Zod` and generated good documentation.
 
-## Running tests
+## Running Tests
 
 - For the handwritten SDK: `cd handwritten && npm test` (see [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md))
 - For the Openapi generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
