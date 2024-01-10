@@ -9,9 +9,6 @@
     "test": "uvu -r tsm tests",
     "test:brute-force-parse-records": "BRUTE_FORCE_TEST_PARSE_RECORDS=true uvu -r tsm tests"
   },
-  "files": [
-    "/dist"
-  ],
   "dependencies": {
     "zod": "^3.22.4"
   },
