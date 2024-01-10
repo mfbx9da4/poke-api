@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { createConfiguration, PokemonApi } from "../dist";
+import { createConfiguration, PokemonApi } from "../index";
 
 export let it = suite("Pokemon API");
 export const config = createConfiguration({});

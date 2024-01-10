@@ -1,6 +1,6 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
-import { StatApi } from "../dist";
+import { StatApi } from "../index";
 import { config } from "./pokemonapi.test";
 
 export const it = suite("Stat API");

@@ -1,7 +1,7 @@
 import { suite } from "uvu";
 import * as assert from "uvu/assert";
 
-import { NatureApi } from "../dist";
+import { NatureApi } from "../index";
 import { config } from "./pokemonapi.test";
 
 const it = suite("Nature API");
