@@ -23,11 +23,15 @@ The pros of generating the SDK are:
 ## General Notes
 
 - **Checked-in node dependencies**: I shipped the `node_module`s with this repository so it's easy for you to run tests, you won't have to run `npm install`. I'm also not [opposed to that in general](https://www.jackfranklin.co.uk/blog/check-in-your-node-dependencies/).
-- **Speakeasy generator**: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it. Instead please pay more attention to `handwritten` and `openapi-generator` folders.
+- **Speakeasy generator**: I tried out Speakeasy but ran into a circular reference issue. With a bit more time I would isolate and fix it. It did in principle look like much better than openapi-generator as it used `Zod` and generated good documentation.
+
+## Running tests
+
+- For the handwritten SDK: `cd handwritten && npm test` (see [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md))
+- For the generated SDK: `cd openapi-generator && npm test` (see [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md))
 
 ## Notes on the Handwritten SDK
 
-- To run the tests follow the instructions in [handwritten/CONTRIBUTING.md](./handwritten/CONTRIBUTING.md)
 - **Peer dependencies vs bundled dependencies**: The age old dilemma of static vs dynamic linking. For user convenience I went for bundling zod but it would be nice to provide the option to use a shared version to save space.
 - **SDK validation**: to ensure that types are always safe, I've added runtime validation to the SDK. I mostly used GitHub copilot to write the validation code. This is a tradeoff between speed and correctness. To ensure the types are perfect aligned with the server I've added the command `npm run test:brute-force-parse-records`. It turns out some of the official documentation was inaccurate and there are some fields which are nullable.
 - **Error handling**: I always appreciate having predefined error codes which is why I have included `PokeSDK.errorCode`. I prefer error codes rather than `instanceof` checks since codes will survive JSON stringification which I've run into in the past.
@@ -40,6 +44,5 @@ The pros of generating the SDK are:
 
 ## Notes on the Generated SDKs
 
-- To run the tests follow the instructions in [openapi-generator/CONTRIBUTING.md](./openapi-generator/CONTRIBUTING.md)
 - **Openapi.yaml**: Instead of parsing the official documentation and generating the `openapi.yaml` [I modified one somebody had made previously](https://github.com/cliffano/pokeapi-clients/blob/main/specification/pokeapi.yml). Ideally there would be a script to regenerate the `openapi.yaml` from the official documentation. Or better yet the official documentation would be generated from the `openapi.yaml`.
-- **Documentation**: The generator didn't output valid documentation so it required manual tweaking. I've linked to the official documentation instead of copying the documentation into the README and linked to the model types.
+- **Documentation**: The generator didn't output valid documentation so it required manual tweaking. I've linked to the official documentation instead of copying the documentation into the README so it doesn't quickly become stale. For the same reason I've linked to the schemas rather than documenting the types.
